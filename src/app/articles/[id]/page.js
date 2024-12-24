@@ -3,29 +3,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CodeBlock } from "@/components/ui/code_block";
 import Image from "next/image";
 import Markdown from 'react-markdown'
-import { promises as fs } from 'fs';
-import Link from "next/link";
+import { promises as fs } from 'fs'
 
-export default async function Home() {
+export default async function Article({params}) {
   const path = process.cwd() + '/public/articles';
-  const files = await fs.readdir(path);
-  const markdowns = await Promise.all(
-      files.map(async (file_path) => {
-      const content = await fs.readFile(`${path}/${file_path}`, 'utf8');
-      return {filename: file_path, content: content}
-    })
-  );
+  const content = await fs.readFile(`${path}/${(await params).id}.md`, 'utf8');
   return (
     <div className="max-w-4xl mx-auto p-4 font-mono">
-     {markdowns.map(({filename, content}, i) => 
-     <Card key={i} className="bg-slate-800 border-white/[.145] text-white my-5">
+     <Card className="bg-slate-800 border-white/[.145] text-white my-5">
         <CardContent className="p-6">
           <Markdown 
             components={{
-              h1(props) {
-                let url = '/articles/' + filename.slice(0, filename.length - 3);
-                return <Link href={url}>{props.children}</Link>
-              },
               code(props){
                 const {node, ...rest} = props
                 return (
@@ -36,7 +24,7 @@ export default async function Home() {
             // className="mb-10"
           >{content}</Markdown>
         </CardContent>
-      </Card>)}
+      </Card>
     </div>
   )
   return <div><Button>Click me</Button>Hello world</div>
