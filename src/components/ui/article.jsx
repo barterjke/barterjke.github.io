@@ -59,7 +59,6 @@ export const Article = ({ content, isLink, key }) => {
         },
         code(props) {
             let code = props.children;
-            console.log(code)
             let lang = ""
             const tag = "#lang:";
             if (code.startsWith(tag)) {
@@ -78,7 +77,6 @@ export const Article = ({ content, isLink, key }) => {
         },
         p(props) {
             let text = props.children;
-            console.log(text)
             if (text && text.startsWith && text.startsWith("<!--") && text.endsWith("-->")) return <></>
             return <div>{props.children}</div>
         }
