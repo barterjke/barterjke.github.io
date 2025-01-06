@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
 
-const repoName = 'portfolio';
 
 const nextConfig = {
     output: 'export',
     distDir: 'docs',
-    basePath: `/${repoName}`,
-    assetPrefix: `/${repoName}/`,
+    basePath: `/barterjke`,
+    assetPrefix: `/barterjke/`,
 };
 
 export default nextConfig;
