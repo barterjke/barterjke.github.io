@@ -1,4 +1,14 @@
 # portfolio
+- https://github.com/practical-tutorials/project-based-learning?tab=readme-ov-file#cc
+- https://www.craftinginterpreters.com/contents.html
+- https://viewsourcecode.org/snaptoken/kilo/01.setup.html#compiling-with-make
+- https://howistart.org/posts/cpp/1/index.html
+- https://learnopengl.com/Getting-started/Camera
+- https://github.github.com/gfm/#tables-extension
+
+- https://ui.shadcn.com/docs/components/checkbox
+- https://tailwindcss.com/docs/font-size
+
 =======
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
