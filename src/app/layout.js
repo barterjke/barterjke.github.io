@@ -1,5 +1,8 @@
 import { Geist, Geist_Mono, JetBrains_Mono, Roboto } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+
+import { FileText, UserRound } from 'lucide-react'
 
 const geistSans = Roboto({
     variable: "--font-geist-sans",
@@ -20,11 +23,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
     const links = [{
         name: "ARITCLES",
-        url: "/"
+        url: "/",
+        icon: <FileText />
     },
     {
         name: "ABOUT ME",
-        url: "/about"
+        url: "/about",
+        icon: <UserRound />
     }];
     return (
         <html lang="en">
@@ -32,15 +37,14 @@ export default function RootLayout({ children }) {
                 className={`${geistSans.variable} ${geistMono.variable} bg-slate-700 antialiased `}
             >
                 <header className="text-white font-mono tracking-wide text-lg">
-                    {/* shadow  */}
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
                         <div className="flex justify-center py-4">
                             <nav className="flex space-x-8">
-                                {links.map(el => ( 
-                                <a href={el.url} className="flex items-center transition">
-                                    <i data-lucide="file-text" className="w-5 h-5"></i>
-                                    <span className="ml-2">{el.name}</span>
-                                </a>))}
+                                {links.map(el => (
+                                    <Link href={el.url} className="flex items-center transition">
+                                        {el.icon}
+                                        <span className="ml-2">{el.name}</span>
+                                    </Link>))}
                             </nav>
                         </div>
                     </div>

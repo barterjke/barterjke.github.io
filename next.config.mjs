@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 
-
 const nextConfig = {
     output: 'export',
-    distDir: 'docs',
-    basePath: `/barterjke`,
-    assetPrefix: `/barterjke/`,
+    distDir: 'export',
 };
 
 export default nextConfig;
