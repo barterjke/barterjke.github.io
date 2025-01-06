@@ -1,5 +1,5 @@
 
-const repoName = '';
+const repoName = 'portfolio';
 
 module.exports = {
   output: 'export',
