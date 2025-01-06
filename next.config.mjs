@@ -3,7 +3,8 @@
 const repoName = 'portfolio';
 
 const nextConfig = {
-    outDre: 'export',
+    output: 'export',
+    distDir: 'docs',
     basePath: `/${repoName}`,
     assetPrefix: `/${repoName}/`,
 };
