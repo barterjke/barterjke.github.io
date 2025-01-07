@@ -40,8 +40,8 @@ export default function RootLayout({ children }) {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
                         <div className="flex justify-center py-4">
                             <nav className="flex space-x-8">
-                                {links.map(el => (
-                                    <Link href={el.url} className="flex items-center transition">
+                                {links.map((el, i) => (
+                                    <Link key={i} href={el.url} className="flex items-center transition">
                                         {el.icon}
                                         <span className="ml-2">{el.name}</span>
                                     </Link>))}
