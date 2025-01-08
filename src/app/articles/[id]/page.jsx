@@ -24,7 +24,7 @@ export default async function Page({ params }) {
     const returnId = '/#' + toSnakeCase(getTitle(content));
     return (
         <div className="max-w-4xl mx-auto p-4 font-mono">
-            <ExtendedMarkdown key={0} content={content} canHaveLinks={true} />
+            <ExtendedMarkdown content={content} canHaveLinks={true} />
             <footer className="flex justify-center w-full font-mono">
                 <Link className="flex mx-4" href={returnId}><ArrowLeft className="pr-1" />Go back</Link>
                 <Link className="flex mx-4" href={'#'}><MoveUp className="pl-2 mr-1" /> Go top</Link>

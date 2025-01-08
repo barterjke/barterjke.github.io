@@ -26,7 +26,7 @@ function HeaderWithLink(props, ind) {
 }
 
 
-export const ExtendedMarkdown = ({ content, canHaveLinks, key }) => {
+export const ExtendedMarkdown = ({ content, canHaveLinks }) => {
     content = content
         .replace(/<!--[\s\S]*?-->/g, '')
         .split('\n')
@@ -48,7 +48,7 @@ export const ExtendedMarkdown = ({ content, canHaveLinks, key }) => {
         a: (props) => !canHaveLinks ? <span className="like-a" {...props} /> : <a {...props}></a>
     };
     return (
-        <Card key={key}
+        <Card
             className={`card bg-slate-800 ${!canHaveLinks ? "hover:bg-slate-600" : ""} border-white/[.145] text-white my-5`}>
             <CardContent className="p-6">
                 <Markdown

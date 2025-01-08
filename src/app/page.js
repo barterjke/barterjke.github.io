@@ -22,8 +22,8 @@ export default async function Home() {
             {markdowns.map(({ filename, content }, i) => {
                 const url = '/articles/' + filename;
                 const id = toSnakeCase(getTitle(content));
-                return (<Link id={id} href={url}>
-                    <ExtendedMarkdown key={i} content={content} canHaveLinks={false} />
+                return (<Link id={id} href={url} key={i}>
+                    <ExtendedMarkdown content={content} canHaveLinks={false} />
                 </Link >)
             })}
         </div >
