@@ -6,9 +6,9 @@ export function cn(...inputs) {
 }
 
 export function toSnakeCase(name) {
-    return encodeURIComponent(name.replaceAll(" ", "_"));
+    return name.replaceAll(" ", "_");
 }
 
 export function getTitle(content) {
-    return content.split('\n')[0].substring(1).trimStart();
+    return content.split('\n')[0].substring(1).trim();
 }

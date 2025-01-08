@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes highlight {
+  0% {
+    background-color: #ffeb3b6f;
+    transform: scale(1.01);
+  }
+  100% {
+    background-color: transparent;
+    transform: scale(1);
+  }
+}
+
+:target {
+  animation: highlight 10s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
 ol {
     list-style-type: decimal;
 
