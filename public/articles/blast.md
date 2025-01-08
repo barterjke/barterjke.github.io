@@ -1,5 +1,5 @@
-## By Barter
 # C++ is ok
+## By Barter
 we are great
 Let's play this little game
 ```

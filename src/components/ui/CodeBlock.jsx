@@ -1,23 +1,29 @@
 import { Highlight } from "prism-react-renderer"
-import CopyButton from "./copy_button"
+import CopyButton from "./CopyButton"
+import { cn } from "@/lib/utils"
 
-export const CodeBlock = ({ code, language, className, theme }) => {
+export const CodeBlock = ({ code, className, theme }) => {
+    let lang = ""
+    const tag = "#lang:";
+    if (code.startsWith(tag)) {
+        let spaceInd = code.search(/\s/g);
+        if (spaceInd == -1) spaceInd = code.length;
+        lang = code.substring(tag.length, spaceInd);
+        code = code.substring(spaceInd + 1);
+    }
+    code = code.trim()
     return (
         <Highlight
             theme={theme ?? ""}
             code={code ?? "empty code block"}
-            language={language}
+            language={lang}
         >
             {
                 ({ style, tokens, getLineProps, getTokenProps }) => {
-                    const is_inline = tokens.length == 1;
-                    if (is_inline)
-                        className += " p-1 inline";
-                    else
-                        className += " p-3"
-                    className += " code_block relative";
+                    const isInline = tokens.length == 1;
+                    className = cn(className, 'code_block relative', isInline ? 'p-1 inline' : 'p-3');
                     return <div className={className}>
-                        {!is_inline && <CopyButton text={code} />}
+                        {!isInline && <CopyButton text={code} />}
                         {tokens.map((line, i) => (
                             <p key={i} {...getLineProps({ line })} className={tokens.length == 1 ? "inline" : ""} >
                                 {/* <span>{i + 1}</span> */}
