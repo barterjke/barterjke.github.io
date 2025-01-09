@@ -14,7 +14,7 @@ export function Image(props) {
         inside = <iframe {...props} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
     }
     return (
-        <div className={"relative bg-opacity-40 bg-black py-4 " + (alt ? "pb-8" : "")}>
+        <div className={"relative bg-opacity-40 bg-black py-4 my-2 " + (alt ? "pb-8" : "")}>
             {inside}
             <p className="absolute w-full text-center left-0 -bottom-2rem">{props.alt}</p>
         </div>

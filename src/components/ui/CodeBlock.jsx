@@ -22,7 +22,7 @@ export const CodeBlock = ({ code, className, theme }) => {
                 ({ style, tokens, getLineProps, getTokenProps }) => {
                     const isInline = tokens.length == 1;
                     className = cn(className, 'code_block relative', isInline ? 'p-1 inline' : 'p-3');
-                    return <div className={className}>
+                    return <div style={style} className={className}>
                         {!isInline && <CopyButton text={code} />}
                         {tokens.map((line, i) => (
                             <p key={i} {...getLineProps({ line })} className={tokens.length == 1 ? "inline" : ""} >

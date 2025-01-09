@@ -7,10 +7,12 @@ import { Link as LinkIcon } from 'lucide-react';
 import { Checkbox } from "@/components/ui/CheckBox";
 import { assert } from "console";
 import { Image } from "./Image";
-import { toSnakeCase } from "@/lib/utils"
+import { cn, toSnakeCase } from "@/lib/utils"
 
 function Header(props, ind) {
-    assert(ind < 6 && ind > 0);
+    if (ind < 0 || ind > 6) {
+        return (<p {...props} />);
+    }
     const text = props.children;
     const id = toSnakeCase(text);
     const Tag = `h${ind}`;
@@ -40,8 +42,8 @@ export const ExtendedMarkdown = ({ content, canHaveLinks }) => {
         h2: (props) => !canHaveLinks ? Header(props, 2) : HeaderWithLink(props, 2),
         code: (props) => (
             <CodeBlock
-                className="my-3 bg-opacity-40 bg-black"
-                theme={themes.shadesOfPurple}
+                className="my-3" // bg-opacity-40 bg-black
+                theme={""}
                 code={props.children} />
         ),
         p: (props) => (<div>{props.children}</div>),
@@ -49,7 +51,7 @@ export const ExtendedMarkdown = ({ content, canHaveLinks }) => {
     };
     return (
         <Card
-            className={`card bg-slate-800 ${!canHaveLinks ? "hover:bg-slate-600" : ""} border-white/[.145] text-white my-5`}>
+            className={cn('card bg-current border-white/[.145] text-white my-5', !canHaveLinks && "hover:bg-currentHovered")}>
             <CardContent className="p-6">
                 <Markdown
                     remarkPlugins={remarkGfm}
