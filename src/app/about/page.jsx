@@ -6,7 +6,7 @@ export const metadata = {
 
 export default async function AboutMe() {
     const desc = "I'm Big Data Python developer. I love building stuff. Let me know if you want to give me a big pile of money :)";
-    const photo_url = "img/me.png";
+    const photo_url = "img/me.jpg";
     const mail = "pazdniakou.official@gmail.com";
     const phone = "+48 511 493 235";
     return (
