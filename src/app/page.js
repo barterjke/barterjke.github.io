@@ -9,7 +9,7 @@ export const metadata = {
 }
 
 export default async function Home() {
-    const files = await generateStaticParams();
+    const files = await generateStaticParams().filter(filename => !filename.id.startsWith("_"));
     const markdowns = await Promise.all(
         files.map(async (filename) => {
             let content = await fs.readFile(`${ARTICLES_PATH}/${filename.id}.md`, 'utf8');
