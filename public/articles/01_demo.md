@@ -2,6 +2,16 @@
 
 Basic stuff like __\_\_strong\_\___, italic _\_italic\__, [links](https://google.com)
 
+```
+#lang:cpp
+#include <iostream>  
+void sum(int a, int b) {   
+    return a + b;
+}
+```
+here is one liner: `#lang:cpp void sum(int a, int b) { return a + b }`;
+`#lang:bash echo true`
+
 Quotes also work:
 > Wow you are soo good 
     cite: You  
